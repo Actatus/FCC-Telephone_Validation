@@ -9,18 +9,20 @@ function validateInput(input){
     return false;
   }
 
-  let inputRegEx = input.match(/\d/g);
-  if (inputRegEx !== null){
-    let inputRegExJoin = input.match(/\d/g).join('');
-    if (inputRegExJoin.length < 10 || inputRegExJoin.length> 11){
-      return false;
-    } else {
-      if (inputRegExJoin.length == 11 && inputRegExJoin[0]!= 1){
-        return false;
-      }
-      return true;
-    }
-  }
+  // let inputRegEx = input.match(/\d/g);
+  // if (inputRegEx !== null){
+  //   let inputRegExJoin = input.match(/\d/g).join('');
+  //   if (inputRegExJoin.length < 10 || inputRegExJoin.length> 11){
+  //     return false;
+  //   } else {
+  //     if (inputRegExJoin.length == 11 && inputRegExJoin[0]!= 1){
+  //       return false;
+  //     }
+  //     return true;
+  //   }
+  //
+
+  
   return false;
 }
 
