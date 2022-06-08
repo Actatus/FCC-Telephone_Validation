@@ -9,22 +9,37 @@ function validateInput(input){
     return false;
   }
 
-  // let inputRegEx = input.match(/\d/g);
-  // if (inputRegEx !== null){
-  //   let inputRegExJoin = input.match(/\d/g).join('');
-  //   if (inputRegExJoin.length < 10 || inputRegExJoin.length> 11){
-  //     return false;
-  //   } else {
-  //     if (inputRegExJoin.length == 11 && inputRegExJoin[0]!= 1){
-  //       return false;
-  //     }
-  //     return true;
-  //   }
-  //
-
-  
-  return false;
+  return checkLength(input);
 }
 
+function checkLength(input){
+  let inputRegEx = input.match(/\d/g);
+  if (inputRegEx !== null){
+    let inputRegExJoin = inputRegEx.join('');
+    if (inputRegExJoin.length == 11){
+      return hasCountryCode(input);
+      return false;
+    } else if (inputRegExJoin.length == 10){
+      noCountryCode(input);
+      return false;
+    }
+    return false;
+  }
+}
 
+function hasCountryCode(input){
+ console.log("Has Country Code");
+ if (input[0] != "1"){
+   return false;
+ }
+ return true;
+}
+
+function noCountryCode(input){
+  console.log("No Country Code");
+}
+
+function syntaxCheck(input){
+  /*Check sytax, if there's a ( match with ), no more than 2 "-"*/
+}
 module.exports = validateInput;
