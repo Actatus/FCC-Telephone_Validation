@@ -40,6 +40,17 @@ test("Country code -1", () => {
   expect(validateInput("-1 111-111-1111"));
 });
 
+test("Multiple dashes", () => {
+  expect(validateInput("1(555)55-5-55-55")).toBe(false);
+});
+
+test("Incorrect parantheses 1", () => {
+  expect(validateInput("1 555)555-5555")).toBe(false);
+})
+
+test("Incorrect parantheses 3", () => {
+  expect(validateInput("1 (555))555-5555"));
+});
 
 test('no input', () => {
   expect(validateInput()).toBe(false);
