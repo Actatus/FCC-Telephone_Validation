@@ -18,10 +18,8 @@ function checkLength(input){
     let inputRegExJoin = inputRegEx.join('');
     if (inputRegExJoin.length == 11){
       return hasCountryCode(input);
-      return false;
     } else if (inputRegExJoin.length == 10){
-      noCountryCode(input);
-      return false;
+      return syntaxCheck(input);
     }
     return false;
   }
@@ -35,7 +33,7 @@ function hasCountryCode(input){
 }
 
 function noCountryCode(input){
-  return syntaxCheck();
+  return syntaxCheck(input);
 }
 
 function syntaxCheck(input){
