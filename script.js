@@ -32,14 +32,22 @@ function hasCountryCode(input){
  if (input[0] != "1"){
    return false;
  }
- return true;
+ return syntaxCheck(input);
 }
 
 function noCountryCode(input){
   console.log("No Country Code");
+  return syntaxCheck();
 }
 
 function syntaxCheck(input){
   /*Check sytax, if there's a ( match with ), no more than 2 "-"*/
+  let dashCheck = input.match(/-/g) ?? 0;
+  console.log(input + " ----- " + dashCheck);
+  if (dashCheck.length > 2){
+    console.log("too many dash " + input);
+    return false;
+  }
+  return true;
 }
 module.exports = validateInput;
