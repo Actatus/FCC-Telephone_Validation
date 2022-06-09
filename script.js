@@ -28,7 +28,6 @@ function checkLength(input){
 }
 
 function hasCountryCode(input){
- console.log("Has Country Code");
  if (input[0] != "1"){
    return false;
  }
@@ -36,16 +35,20 @@ function hasCountryCode(input){
 }
 
 function noCountryCode(input){
-  console.log("No Country Code");
   return syntaxCheck();
 }
 
 function syntaxCheck(input){
   /*Check sytax, if there's a ( match with ), no more than 2 "-"*/
   let dashCheck = input.match(/-/g) ?? 0;
-  console.log(input + " ----- " + dashCheck);
+  let paranthesesCheck = input.match(/[()]/g) ?? 0;
   if (dashCheck.length > 2){
-    console.log("too many dash " + input);
+    console.log("dashCheck " + input);
+    return false;
+  }
+  if (paranthesesCheck !== 0 && paranthesesCheck.length !== 2){
+    console.log("paranthesesCheck " + input + " " + paranthesesCheck);
+    console.log(input + " " + paranthesesCheck.length);
     return false;
   }
   return true;
