@@ -52,6 +52,14 @@ test("Incorrect parantheses 3", () => {
   expect(validateInput("1 (555))555-5555"));
 });
 
+test("Incorrect parantheses placement, 10 digits",() => {
+  expect(validateInput("(55)5-555-5555")).toBe(false);
+});
+
+test("Incorrect parantheses placement, 11 digits", () => {
+  expect(validateInput("1(55)5-555-5555")).toBe(false);
+});
+
 test('no input', () => {
   expect(validateInput()).toBe(false);
 });
