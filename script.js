@@ -2,8 +2,6 @@
 //Number must include an area code.
 //Number can include the +1 country code.
 
-let userInput = document.querySelector('input');
-
 function validateInput(input){
   if (!input){
     return false;
